@@ -20,12 +20,12 @@ const Wishes = () => {
 
   useEffect(() => {
     if (showWishes.length > 0) {
-      // Automatically cycle through wishes every 5 seconds
+      // Automatically cycle through wishes every 3 seconds
       const interval = setInterval(() => {
         setCurrentWishIndex((prevIndex) =>
           prevIndex === showWishes.length - 1 ? 0 : prevIndex + 1
         );
-      }, 5000);
+      }, 3000); // Change to 3000ms for 3 seconds
       return () => clearInterval(interval);
     }
   }, [showWishes]);
@@ -83,8 +83,6 @@ const Wishes = () => {
         <motion.button
           type="submit"
           className="wish-submit"
-          whileHover={{ scale: 1.1, rotate: 10, transition: { type: 'spring', stiffness: 400 } }}
-          whileTap={{ scale: 0.95, rotate: -10 }}
         >
           Submit Wish
         </motion.button>
