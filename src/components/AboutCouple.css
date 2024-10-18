@@ -3,9 +3,11 @@
   text-align: center;
   color: #b02e0c;
   position: relative;
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, #ffcccb, #fff2cc); /* Warm gradient */
+  animation: gradient-animation 10s ease infinite; /* Animation effect */
   backdrop-filter: blur(5px); /* Soft blur for modern look */
 }
+
 
 .about-title {
   font-size: 4rem;
@@ -60,4 +62,17 @@
 .story-image:hover {
   transform: scale(1.1) rotate(3deg);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position : 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

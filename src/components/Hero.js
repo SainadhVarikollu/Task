@@ -89,8 +89,7 @@ const Hero = () => {
           />
         </div>
 
-        <p className="hero-date">December 07, 2024
-        Khammam
+        <p className="hero-date">December 07, 2024, Khammam.
         </p>
       
         {/* Button Animation */}

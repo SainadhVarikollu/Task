@@ -4,10 +4,11 @@
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative; /* To position confetti */
   overflow: hidden; /* Prevent overflow of elements */
+  width: 100%;
 }
 
 .wishes-title {
@@ -20,6 +21,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 }
 
 .wish-input, .wish-textarea {
@@ -28,7 +30,10 @@
   border-radius: 5px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  width: 100%; /* Make the inputs and textarea fill the form horizontally */
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width */
 }
+
 
 .wish-submit {
   background-color: #b02e0c;
@@ -37,6 +42,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%; /* Submit button also takes full width */
+  box-sizing: border-box;
 }
 
 .wishes-list {
