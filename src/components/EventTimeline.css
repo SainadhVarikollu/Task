@@ -9,6 +9,45 @@
   position: relative;
 }
 
+/* Lights Decoration */
+.lights-decoration {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.light {
+  width: 15px;
+  height: 15px;
+  background-color: #f9ca24;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #f9ca24, 0 0 20px #f9ca24, 0 0 30px #f9ca24;
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* Target even lights to blink differently */
+.light:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+/* Blink effect */
+@keyframes blink {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 10px #f9ca24, 0 0 20px #f9ca24, 0 0 30px #f9ca24;
+  }
+  50% {
+    opacity: 0.2;
+    box-shadow: 0 0 5px #f9ca24, 0 0 10px #f9ca24, 0 0 15px #f9ca24;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 10px #f9ca24, 0 0 20px #f9ca24, 0 0 30px #f9ca24;
+  }
+}
+
+
 .timeline-title {
   font-size: 3rem;
   color: #f9ca24;

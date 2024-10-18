@@ -41,6 +41,32 @@ const EventTimeline = () => {
 
   return (
     <div className="timeline">
+      {/* Lights Decoration */}
+      <div className="lights-decoration">
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+        <div className="light"></div>
+      </div>
+
       <h2 className="timeline-title">Event Schedule</h2>
       <div className="timeline-items">
         <div className="timeline-item">
