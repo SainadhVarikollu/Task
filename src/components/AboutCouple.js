@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Parallax } from 'react-parallax';
 import { motion } from 'framer-motion';
 import Picture1 from './Picture1.PNG';
@@ -8,6 +8,16 @@ import Picture4 from './Picture4.jpg';
 import './AboutCouple.css';
 
 const AboutCouple = () => {
+  const [showNames, setShowNames] = useState(true); // State to control visibility of names
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowNames(false); // Hide names after 3 seconds (3000 milliseconds)
+    }, 3000);
+
+    return () => clearTimeout(timer); // Cleanup the timer on unmount
+  }, []);
+
   return (
     <Parallax
       bgImage="Flower\ Banner.jpg" /* Romantic background image */
@@ -191,6 +201,27 @@ const AboutCouple = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Animated Couple Hashtag */}
+        <motion.div
+          className="couple-hashtag"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 2 }}
+        >
+          <motion.div
+            className="text-animation"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              textShadow: "0px 0px 8px rgba(0,0,0,0.5)",
+              fontSize: ["1.5rem", "2rem", "3rem"],
+            }}
+            transition={{ duration: 4, repeatType: "reverse" }}
+          >
+            {showNames ? "Pathuri Ravi Teja Dirisala Sneha" : "#PDRS❤️"}
+          </motion.div>
+        </motion.div>
       </div>
     </Parallax>
   );
