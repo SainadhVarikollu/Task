@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Picture1 from './Picture1.PNG';
 import Picture2 from './Picture2.jpg';
 import Picture3 from './Picture3.JPG';
-import Picture4 from './Picture4.jpg'
+import Picture4 from './Picture4.jpg';
 import './AboutCouple.css';
 
 const AboutCouple = () => {
@@ -61,7 +61,7 @@ const AboutCouple = () => {
               className="story-image"
             />
             <p className="story-text">
-              As teenagers, their bond grew stronger, from heartfelt conversations to supporting each other's wildest dreams.
+              As teenagers, our bond grew stronger, from heartfelt conversations to supporting each other's wildest dreams.
             </p>
           </motion.div>
 
@@ -80,7 +80,7 @@ const AboutCouple = () => {
               className="story-image"
             />
             <p className="story-text">
-              Adulthood brought new adventures and challenges, but through it all, Ravi and Sneha remained each other's greatest source of strength.
+              Adulthood brought new adventures and challenges, but through it all, we remained each other's greatest source of strength.
             </p>
           </motion.div>
 
@@ -99,7 +99,7 @@ const AboutCouple = () => {
               className="story-image"
             />
             <p className="story-text">
-              Now, they are ready to turn their beautiful journey into a lifetime of togetherness as they prepare to write the next chapter—marriage.
+              Now, we are ready to turn our beautiful journey into a lifetime of togetherness as we prepare to write the next chapter-"MARRIAGE".
             </p>
           </motion.div>
         </div>

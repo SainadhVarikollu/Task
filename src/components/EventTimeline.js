@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Removed FaChurch and FaGlassCheers imports
+import { gsap } from 'gsap';
 import './EventTimeline.css';
 
 const EventTimeline = () => {
@@ -28,21 +28,30 @@ const EventTimeline = () => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearTimeout(timer);
-  });
+  }, [timeLeft]);
+
+  useEffect(() => {
+    // GSAP Animation for countdown numbers
+    gsap.fromTo(
+      '.countdown-time',
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, stagger: 0.2, ease: 'power3.out' }
+    );
+  }, [timeLeft]);
 
   return (
     <div className="timeline">
       <h2 className="timeline-title">Event Schedule</h2>
       <div className="timeline-items">
         <div className="timeline-item">
-          <span className="timeline-icon">🛕</span> {/* Hindu Temple Icon */}
+          <span className="timeline-icon">🛕</span>
           <div>
             <h3>Vivah (Wedding Ceremony)</h3>
             <p>4:00 PM at Ganesh Gardens</p>
           </div>
         </div>
         <div className="timeline-item">
-          <span className="timeline-icon">🍵</span> {/* Kalash or Reception Symbol */}
+          <span className="timeline-icon">🍵</span>
           <div>
             <h3>Reception</h3>
             <p>6:00 PM at Banquet Hall</p>
@@ -51,56 +60,31 @@ const EventTimeline = () => {
       </div>
 
       {/* Countdown Timer */}
-      <motion.div
-        className="countdown"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: 'easeOut' }}
-      >
+      <div className="countdown-container">
         <h2 className="countdown-title">Countdown to Our Special Day</h2>
         <div className="countdown-timer">
           <div className="countdown-section">
-            <motion.div
-              className="countdown-time"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            >
-              {timeLeft.days || '0'}
-            </motion.div>
+            <div className="countdown-time">{timeLeft.days || '00'}</div>
             <span>Days</span>
           </div>
           <div className="countdown-section">
-            <motion.div
-              className="countdown-time"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            >
-              {timeLeft.hours || '0'}
-            </motion.div>
+            <div className="countdown-time">{timeLeft.hours || '00'}</div>
             <span>Hours</span>
           </div>
           <div className="countdown-section">
-            <motion.div
-              className="countdown-time"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            >
-              {timeLeft.minutes || '0'}
-            </motion.div>
+            <div className="countdown-time">{timeLeft.minutes || '00'}</div>
             <span>Minutes</span>
           </div>
           <div className="countdown-section">
-            <motion.div
-              className="countdown-time"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            >
-              {timeLeft.seconds || '0'}
-            </motion.div>
+            <div className="countdown-time">{timeLeft.seconds || '00'}</div>
             <span>Seconds</span>
           </div>
         </div>
-      </motion.div>
+      </div>
+
+      <div className="presence">
+        <h2>Your presence will make our day truly special</h2>
+      </div>
     </div>
   );
 };
