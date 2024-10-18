@@ -81,6 +81,7 @@
 
 .countdown-container {
   margin-top: 60px;
+  width:100%;
 }
 
 .countdown-title {
@@ -112,6 +113,7 @@
   color: #feca57;
   transition: all 0.5s ease;
   opacity: 0; /* Start invisible for GSAP animation */
+  width:100%;
 }
 
 span {

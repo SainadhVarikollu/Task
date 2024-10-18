@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Parallax } from 'react-parallax';
 import { motion } from 'framer-motion';
 import Picture1 from './Picture1.PNG';
@@ -9,14 +9,45 @@ import './AboutCouple.css';
 
 const AboutCouple = () => {
   const [showNames, setShowNames] = useState(true); // State to control visibility of names
+  const [inView, setInView] = useState(false); // State to control when the animation starts
+  const animationRef = useRef(null); // Reference to the animated section
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowNames(false); // Hide names after 3 seconds (3000 milliseconds)
-    }, 3000);
+    // IntersectionObserver to detect when the text-animation is in view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true); // Start the animation when in view
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is in view
+    );
+
+    // Copy ref value to a local variable to avoid changing ref during cleanup
+    const currentRef = animationRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    let timer;
+    if (inView) {
+      // Once the section is in view, show the names for 5 seconds
+      timer = setTimeout(() => {
+        setShowNames(false); // Hide names after 5 seconds
+      }, 5000);
+    }
 
     return () => clearTimeout(timer); // Cleanup the timer on unmount
-  }, []);
+  }, [inView]);
 
   return (
     <Parallax
@@ -188,7 +219,7 @@ const AboutCouple = () => {
                 animate={{
                   scale: [1, 1.3, 1],
                   rotate: [0, -10, 10, 0],
-                  backgroundColor: ['#ffcccc', '#ff6666', '#ff9999'], // Romantic marriage colors
+                  backgroundColor: ['#ffcccc', '#ff9999', '#ffcccc'], // Wedding theme colors
                 }}
                 transition={{
                   duration: 2.8,
@@ -196,32 +227,33 @@ const AboutCouple = () => {
                   repeatType: "mirror",
                 }}
               >
-                💍💑
+               💍💑
               </motion.div>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Animated Couple Hashtag */}
-        <motion.div
-          className="couple-hashtag"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 2 }}
-        >
+        {/* Name Reveal Animation */}
+        <div className="couple-names" ref={animationRef}>
           <motion.div
-            className="text-animation"
             initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              textShadow: "0px 0px 8px rgba(0,0,0,0.5)",
-              fontSize: ["1.5rem", "2rem", "3rem"],
-            }}
-            transition={{ duration: 4, repeatType: "reverse" }}
+            animate={{ opacity: showNames ? 1 : 0 }}
+            transition={{ duration: 1 }}
+            className="couple-name"
           >
-            {showNames ? "Pathuri Ravi Teja Dirisala Sneha" : "#PDRS❤️"}
+            Pathuri Ravi Teja & Dirisala Sneha {/* Display for 5 seconds */}
           </motion.div>
-        </motion.div>
+          {!showNames && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="couple-name"
+            >
+              #PDRS {/* Display after 5 seconds */}
+            </motion.div>
+          )}
+        </div>
       </div>
     </Parallax>
   );
