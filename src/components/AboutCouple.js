@@ -43,7 +43,7 @@ const AboutCouple = () => {
       // Once the section is in view, show the names for 5 seconds
       timer = setTimeout(() => {
         setShowNames(false); // Hide names after 5 seconds
-      }, 2000);
+      }, 6000);
     }
 
     return () => clearTimeout(timer); // Cleanup the timer on unmount

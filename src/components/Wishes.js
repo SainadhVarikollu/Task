@@ -47,7 +47,7 @@ const Wishes = () => {
       setShowConfetti(true);
       setTimeout(() => {
         setShowConfetti(false); // Confetti lasts for 3 seconds
-      }, 3000);
+      }, 4000);
     }
   };
 

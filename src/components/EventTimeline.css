@@ -126,3 +126,19 @@ span {
   font-size: 1.5rem;
   color: #f0932b;
 }
+
+@media (max-width: 480px) {
+  .countdown-timer {
+    flex-direction: column; /* Stack the countdown sections vertically */
+    gap: 20px; /* Add gap between the sections */
+  }
+
+  .countdown-time {
+    font-size: 2.5rem; /* Adjust font size for better visibility */
+    padding: 15px 20px; /* Adjust padding to fit content */
+  }
+
+  span {
+    font-size: 1.2rem; /* Slightly adjust the label size */
+  }
+}

@@ -1,13 +1,14 @@
+/* Base styles remain the same */
 .wishes-container {
-  background: linear-gradient(to right, #fff2cc, #ffcccb); /* Soft background gradient */
+  background: linear-gradient(to right, #fff2cc, #ffcccb);
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  position: relative; /* To position confetti */
-  overflow: hidden; /* Prevent overflow of elements */
+  position: relative;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -30,10 +31,9 @@
   border-radius: 5px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  width: 100%; /* Make the inputs and textarea fill the form horizontally */
-  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width */
+  width: 100%;
+  box-sizing: border-box;
 }
-
 
 .wish-submit {
   background-color: #b02e0c;
@@ -42,13 +42,13 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%; /* Submit button also takes full width */
+  width: 100%;
   box-sizing: border-box;
 }
 
 .wishes-list {
   margin-top: 20px;
-  height: 60px; /* Fixed height for better alignment */
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,7 +59,53 @@
   font-weight: bold;
   color: #333;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.9); /* Slightly translucent for layering */
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments using media queries */
+@media only screen and (max-width: 768px) {
+  .wishes-container {
+    padding: 30px;
+  }
+
+  .wishes-title {
+    font-size: 2rem;
+  }
+
+  .wish-input, .wish-textarea, .wish-submit {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .wishes-list {
+    margin-top: 15px;
+    height: auto; /* Remove fixed height for small screens */
+  }
+
+  .wish-slide {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .wishes-container {
+    padding: 20px;
+  }
+
+  .wishes-title {
+    font-size: 1.8rem;
+  }
+
+  .wish-input, .wish-textarea, .wish-submit {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .wish-slide {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
 }
