@@ -128,6 +128,57 @@ span {
 }
 
 @media (max-width: 480px) {
+  
+  .timeline {
+    background: linear-gradient(135deg, #1c1c1c 30%, #222 100%);
+    padding: 50px 20px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Lights Decoration */
+  .lights-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .light {
+    width: 15px;
+    height: 15px;
+    background-color: #f9ca24;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f9ca24, 0 0 20px #f9ca24, 0 0 30px #f9ca24;
+    animation: blink 1s ease-in-out infinite;
+  }
+  
+  /* Target even lights to blink differently */
+  .light:nth-child(even) {
+    animation-delay: 0.5s;
+  }
+  
+  /* Blink effect */
+  @keyframes blink {
+    0% {
+      opacity: 1;
+      box-shadow: 0 0 10px #f9ca24, 0 0 20px #f9ca24, 0 0 30px #f9ca24;
+    }
+    50% {
+      opacity: 0.2;
+      box-shadow: 0 0 5px #f9ca24, 0 0 10px #f9ca24, 0 0 15px #f9ca24;
+    }
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 10px #f9ca24, 0 0 20px #f9ca24, 0 0 30px #f9ca24;
+    }
+  }
+  
+
   .countdown-timer {
     flex-direction: column; /* Stack the countdown sections vertically */
     gap: 20px; /* Add gap between the sections */

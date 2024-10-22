@@ -73,14 +73,14 @@ const EventTimeline = () => {
           <span className="timeline-icon">🛕</span>
           <div>
             <h3>Vivah (Wedding Ceremony)</h3>
-            <p>8:00 PM at Ganesh Gardens, Khammam</p>
+            <p>8:00 PM at MMR A/C CONVENTION HALL, Khammam</p>
           </div>
         </div>
         <div className="timeline-item">
           <span className="timeline-icon">🍵</span>
           <div>
-            <h3>Reception</h3>
-            <p>6:00 PM at Banquet Hall</p>
+            <h3>Dinner to Follow</h3>
+            <p>6:00 PM</p>
           </div>
         </div>
       </div>
